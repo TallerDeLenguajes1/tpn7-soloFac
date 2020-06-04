@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ozO+jTU6plW3neJ8S85WpEVcqQfOuHudf1bwbx3V23N7JZ1U+Pq09zPU8L9HzuO59/oc3NAIRFlPQ6LzaYVKZg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Franco\\Desktop\\Repositorios\\codebin#\\TPN7\\Calculator\\newp\\newp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

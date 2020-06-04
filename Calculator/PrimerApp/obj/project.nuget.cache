@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3utGuOU/QeSTxZiPfb5uce4L50InyU60h3fzssK1tSzJDKqB9JOz3thnXOGFzF269jQrK7TrAloYSZv9/5fIGQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Franco\\Desktop\\Repositorios\\codebin#\\TPN7\\Calculator\\PrimerApp\\PrimerApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

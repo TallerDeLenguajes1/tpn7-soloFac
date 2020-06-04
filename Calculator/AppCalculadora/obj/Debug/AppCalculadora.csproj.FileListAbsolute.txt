@@ -1,0 +1,10 @@
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\bin\Debug\AppCalculadora.exe.config
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\bin\Debug\AppCalculadora.exe
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\bin\Debug\AppCalculadora.pdb
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\obj\Debug\AppCalculadora.csprojAssemblyReference.cache
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\obj\Debug\AppCalculadora.Form1.resources
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\obj\Debug\AppCalculadora.Properties.Resources.resources
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\obj\Debug\AppCalculadora.csproj.GenerateResource.cache
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\obj\Debug\AppCalculadora.csproj.CoreCompileInputs.cache
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\obj\Debug\AppCalculadora.exe
+C:\Users\Franco\Desktop\Repositorios\codebin#\TPN7\Calculator\AppCalculadora\obj\Debug\AppCalculadora.pdb
