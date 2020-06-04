@@ -19,18 +19,18 @@ namespace AppCalculadora
             float result = Numero1 + Numero2; return result;
         }
 
-        float Resta(float Numero1, float Numero2)
+        public float Resta(float Numero1, float Numero2)
         {
             float result = Numero1 - Numero2; return result;
         }
 
-        float Multiplicacion(float Numero1, float Numero2)
+        public float Multiplicacion(float Numero1, float Numero2)
         {
             float result = Numero1 * Numero2; return result;
         }
 
-        
-        string Division(float Numero1, float Numero2)
+
+        public string Division(float Numero1, float Numero2)
         {
             if (Numero2 != 0)
             {
