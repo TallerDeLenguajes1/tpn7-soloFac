@@ -224,6 +224,8 @@
             this.textBoxInf.Size = new System.Drawing.Size(256, 27);
             this.textBoxInf.TabIndex = 16;
             this.textBoxInf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxInf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxInf_KeyDown);
+            this.textBoxInf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxInf_KeyPress);
             // 
             // button17
             // 
