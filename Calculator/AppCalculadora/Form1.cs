@@ -3,14 +3,28 @@ using System.Windows.Forms;
 
 namespace AppCalculadora
 {
+    enum EstadoOperador 
+    {
+        OperadorNoAsignado = 1,
+        OperadorAsignado = 2
+    }
+
+    enum TeclaPresionada
+    {
+        TeclaNumerica ,
+        TeclaBack ,
+        TeclaOperador,
+        TeclaNoValida
+    }
+
     public partial class Form1 : Form
     {
         Calculadora MiCalculadora;
 
-        string estado = "OpNoAsignado";
+        EstadoOperador estado = EstadoOperador.OperadorNoAsignado;
         string operador;
         float Num1=0, Num2=0, resultado=0;
-
+        TeclaPresionada MiTeclaPresionada;
         public Form1()
         {
             InitializeComponent();
@@ -18,141 +32,57 @@ namespace AppCalculadora
 
             textBoxInf.KeyDown += textBoxInf_KeyDown;
             textBoxInf.KeyPress += textBoxInf_KeyPress;
-            textBoxInf.KeyUp += textBoxInf_KeyUp;
+            button1.Click += BtnNumerico_Click;
+            button2.Click += BtnNumerico_Click;
+            button3.Click += BtnNumerico_Click;
+            button4.Click += BtnNumerico_Click;
+            button5.Click += BtnNumerico_Click;
+            button6.Click += BtnNumerico_Click;
+            button7.Click += BtnNumerico_Click;
+            button8.Click += BtnNumerico_Click;
+            button9.Click += BtnNumerico_Click;
+            button9.Click += BtnNumerico_Click;
+            button11.Click += BtnNumerico_Click;
+            //textBoxInf.KeyUp += textBoxInf_KeyUp;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnNumerico_Click(object sender, EventArgs e)
         {
-            if (estado == "OpNoAsignado")
+            string TextoBoton = ((Button)sender).Text;
+            PresionDeNumero(TextoBoton);
+        }
+
+        public void PresionDeNumero(string NumeroPresionado)
+        {
+            if (estado == EstadoOperador.OperadorNoAsignado)
             {
-                textBoxInf.Text += "1";
+                textBoxInf.Text += NumeroPresionado;
                 Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
             }
-            else if (estado == "OpAsignado")
+            else if (estado == EstadoOperador.OperadorAsignado)
             {
-                textBoxInf.Text += "1";
-            }
+                textBoxInf.Text += NumeroPresionado;
+            }         
         }
 
-        private void button2_Click(object sender, EventArgs e)  //Deberia hacer un trim?
-        {
-            if (estado == "OpNoAsignado")
-            {
-                textBoxInf.Text += "4";
-                Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
-            }
-            else if (estado == "OpAsignado")
-            {
-                textBoxInf.Text += "4";
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (estado == "OpNoAsignado")
-            {
-                textBoxInf.Text += "3";
-                Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
-            }
-            else if (estado == "OpAsignado")
-            {
-                textBoxInf.Text += "3";
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (estado == "OpNoAsignado")
-            {
-                textBoxInf.Text += "4";
-                Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
-            }
-            else if (estado == "OpAsignado")
-            {
-                textBoxInf.Text += "4";
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if (estado == "OpNoAsignado")
-            {
-                textBoxInf.Text += "5";
-                Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
-            }
-            else if (estado == "OpAsignado")
-            {
-                textBoxInf.Text += "5";
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            if (estado == "OpNoAsignado")
-            {
-                textBoxInf.Text += "6";
-                Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
-            }
-            else if (estado == "OpAsignado")
-            {
-                textBoxInf.Text += "6";
-            }
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            if (estado == "OpNoAsignado")
-            {
-                textBoxInf.Text += "7";
-                Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
-            }
-            else if (estado == "OpAsignado")
-            {
-                textBoxInf.Text += "7";
-            }
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (estado == "OpNoAsignado")
-            {
-                textBoxInf.Text += "8";
-                Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
-            }
-            else if (estado == "OpAsignado")
-            {
-                textBoxInf.Text += "8";
-            }
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            if (estado == "OpNoAsignado")
-            {
-                textBoxInf.Text += "9";
-                Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
-            }
-            else if (estado == "OpAsignado")
-            {
-                textBoxInf.Text += "9";
-            }
-        }
-
+        
         
         private void buttonPunto_Click(object sender, EventArgs e)
         {
             textBoxInf.Text += ".";
+            float Nombre = 123.2f;
+
         }
         
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if (estado == "OpNoAsignado")
+            if (estado == EstadoOperador.OperadorNoAsignado)
             {
                 textBoxInf.Text += "0";
                 Num1 = Convert.ToSingle(textBoxInf.Text.Trim());
             }
-            else if (estado == "OpAsignado")
+            else if (estado == EstadoOperador.OperadorAsignado)
             {
                 textBoxInf.Text += "0";
             }
@@ -161,7 +91,7 @@ namespace AppCalculadora
 
         private void buttonIgual_Click(object sender, EventArgs e)
         {
-            if(estado == "OpAsignado")
+            if(estado == EstadoOperador.OperadorAsignado)
             {
                 Num2 = Convert.ToSingle(textBoxInf.Text);
 
@@ -231,112 +161,110 @@ namespace AppCalculadora
 
         private void buttonDivision_Click(object sender, EventArgs e)
         {
-            if (Num1.ToString() != "" && estado == "OpNoAsignado")
+            if (Num1.ToString() != "" && estado == EstadoOperador.OperadorNoAsignado)
             {
                 operador = "/";
                 textBoxSup.Text = Num1.ToString() + operador;
                 textBoxInf.Text = "";
-                estado = "OpAsignado";
+                estado = EstadoOperador.OperadorAsignado;
             }
         }
 
         private void buttonMultiplicacion_Click(object sender, EventArgs e)
         {
-            if (Num1.ToString() != "" && estado == "OpNoAsignado")
+            if (Num1.ToString() != "" && estado == EstadoOperador.OperadorNoAsignado)
             {
                 operador = "*";
                 textBoxSup.Text = Num1.ToString() + operador;
                 textBoxInf.Text = "";
-                estado = "OpAsignado";
+                estado = EstadoOperador.OperadorAsignado;
             }
         }
 
         private void buttonResta_Click(object sender, EventArgs e)
         {
-            if (Num1.ToString() != "" == true && estado == "OpNoAsignado")
+            if (Num1.ToString() != "" == true && estado == EstadoOperador.OperadorNoAsignado)
             {
                 operador = "-";
                 textBoxSup.Text = Num1.ToString() + operador;
                 textBoxInf.Text = "";
-                estado = "OpAsignado";
+                estado = EstadoOperador.OperadorAsignado;
             }
         }
 
         private void buttonSuma_Click(object sender, EventArgs e)
         {
-            if(Num1.ToString() != "" && estado == "OpAsignado")
+            if(Num1.ToString() != "" && estado == EstadoOperador.OperadorAsignado)
             {
                 operador = "+";
                 textBoxSup.Text = Num1.ToString() + operador;
                 textBoxInf.Text = "";
-                estado = "OpAsignado";
+                estado = EstadoOperador.OperadorAsignado;
             }
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            estado = "OpNoAsignado";
+            estado = EstadoOperador.OperadorNoAsignado;
             textBoxInf.Text = "";
         }
 
-        /*
-        private bool noNumeroIngresado = false;
+
+        
         private void textBoxInf_KeyDown(object sender, KeyEventArgs e)
         {
-            noNumeroIngresado = false;
-            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
+            MiTeclaPresionada = TeclaPresionada.TeclaNoValida;
+          
+            if ((e.KeyCode > Keys.D0 && e.KeyCode < Keys.D9) ||
+                    (e.KeyCode > Keys.NumPad0 && e.KeyCode < Keys.NumPad9))               
             {
-                // Determine whether the keystroke is a number from the keypad.
-                if (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)
-                {
-                    // Determine whether the keystroke is a backspace.
-                    if (e.KeyCode != Keys.Back)
-                    {
-                        // A non-numerical keystroke was pressed.
-                        // Set the flag to true and evaluate in KeyPress event.
-                        noNumeroIngresado = true;
-                    }
-                }
+                MiTeclaPresionada = TeclaPresionada.TeclaNumerica;
             }
-            //If shift key was pressed, it's not a number.
+
+            if (e.KeyCode == Keys.Add)
+            {
+                MiTeclaPresionada = TeclaPresionada.TeclaOperador;
+            }
+
+            if ((e.KeyCode == Keys.Back))
+            {
+                MiTeclaPresionada = TeclaPresionada.TeclaBack;                
+            }
+            
             if (Control.ModifierKeys == Keys.Shift)
             {
-                noNumeroIngresado = true;
+                MiTeclaPresionada = TeclaPresionada.TeclaNoValida;
             }
         }
 
-        
+
         private void textBoxInf_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            noNumeroIngresado = false;
-            // Check for the flag being set in the KeyDown event.
-            if (noNumeroIngresado == true)
-            {
-                // Stop the character from being entered into the control since it is non-numerical.
-                e.Handled = true;
-                textBoxInf.Text += e.KeyChar.ToString();
+        {                    
+            if (MiTeclaPresionada == TeclaPresionada.TeclaNoValida)
+            {               
+                e.Handled = true;             
             }
         }
-        */
+
         //-----------------------------------------------------------
 
         // Handle the KeyUp event to print the type of character entered into the control.
-        private void textBoxInf_KeyUp(object sender, KeyEventArgs e)
-        {
-            textBoxSup.AppendText($"KeyUp code: {e.KeyCode}, value: {e.KeyValue}, modifiers: {e.Modifiers}" + "\r\n");
-        }
+        //private void textBoxInf_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    textBoxSup.AppendText($"KeyUp code: {e.KeyCode}, value: {e.KeyValue}, modifiers: {e.Modifiers}" + "\r\n");
+        //}
 
-        // Handle the KeyPress event to print the type of character entered into the control.
-        private void textBoxInf_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            textBoxSup.AppendText($"KeyPress keychar: {e.KeyChar}" + "\r\n");
-        }
+        //// Handle the KeyPress event to print the type of character entered into the control.
+        //private void textBoxInf_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    textBoxSup.AppendText($"KeyPress keychar: {e.KeyChar}" + "\r\n");
+        //}
 
-        // Handle the KeyDown event to print the type of character entered into the control.
-        private void textBoxInf_KeyDown(object sender, KeyEventArgs e)
-        {
-            textBoxSup.AppendText($"KeyDown code: {e.KeyCode}, value: {e.KeyValue}, modifiers: {e.Modifiers}" + "\r\n");
-        }
+        //// Handle the KeyDown event to print the type of character entered into the control.
+        //private void textBoxInf_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    textBoxSup.AppendText($"KeyDown code: {e.KeyCode}, value: {e.KeyValue}, modifiers: {e.Modifiers}" + "\r\n");
+        //}
 
         //-----------------------------------------------------------
 

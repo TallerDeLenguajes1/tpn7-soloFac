@@ -39,7 +39,7 @@ namespace AppCalculadora
             }
             else
             {
-                return "No se puede dividir en 0";
+                return "No se puede dividir en 0";   //-99999999
             }
         }
         
